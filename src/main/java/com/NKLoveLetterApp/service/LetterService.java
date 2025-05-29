@@ -9,6 +9,8 @@ public interface LetterService {
     Letter addLetter(Letter letter);
     // get all letters
     List<Letter> getAllLetters();
+    // get single letter
+    Letter getSingleLetterById(Long id);
     // update letters
     Letter updateLetter(Long id,Letter letter);
     // delete Letter
