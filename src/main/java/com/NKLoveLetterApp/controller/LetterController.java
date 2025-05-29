@@ -24,6 +24,11 @@ public class LetterController {
     public List<Letter> getAllLetters(){
         return letterService.getAllLetters();
     }
+    // get single letter by id
+    @GetMapping("/{id}")
+    public Letter getSingleLetter(@PathVariable Long id) {
+        return letterService.getSingleLetterById(id);
+    }
     // update letter
     @PutMapping("/{id}")
     public Letter updateLetter(@PathVariable Long id,@RequestBody Letter letter){
