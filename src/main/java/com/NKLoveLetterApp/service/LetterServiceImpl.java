@@ -21,6 +21,10 @@ public class LetterServiceImpl implements LetterService{
     public List<Letter> getAllLetters(){
         return letterRepository.findAll();
     }
+    // get single letter by id
+    public Letter getSingleLetterById(Long id){
+        return letterRepository.findById(id).orElse(null);
+    }
     // update letter
     public Letter updateLetter(Long id,Letter updated){
         Optional<Letter> existing = letterRepository.findById(id);
