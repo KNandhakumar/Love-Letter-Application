@@ -29,4 +29,8 @@ public class LetterController {
     public Letter updateLetter(@PathVariable Long id,@RequestBody Letter letter){
         return letterService.updateLetter(id,letter);
     }
+    @DeleteMapping("/{id}")
+    public void deleteLetter(@PathVariable Long id){
+        letterService.deleteLetter(id);
+    }
 }
