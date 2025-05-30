@@ -2,6 +2,7 @@ package com.NKLoveLetterApp.controller;
 
 import com.NKLoveLetterApp.model.Letter;
 import com.NKLoveLetterApp.service.LetterServiceImpl;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public class LetterController {
     private LetterServiceImpl letterService;
     // add letters
     @PostMapping
-    public Letter addLetter(@RequestBody Letter letter){
+    public Letter addLetter(@Valid @RequestBody Letter letter){ // @Valid this for checking validation
         return letterService.addLetter(letter);
     }
     // get all letters
