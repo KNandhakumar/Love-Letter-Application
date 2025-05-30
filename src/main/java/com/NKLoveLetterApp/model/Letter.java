@@ -14,8 +14,10 @@ public class Letter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank(message = "ToWhom cannot be empty") // this is used for this field not empty
+    // @NotBlank -> checks if field is not empty or just spaces
     private String toWhom;
     private String fromWhom;
+    // @Size -> checks if message has at least 7 characters
     @Size(min = 7, message = "Message must be at least 7 characters")
     private String message;
     private String date;
