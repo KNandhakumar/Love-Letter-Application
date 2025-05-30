@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 // this entity connect with our database table
 @Entity
@@ -11,8 +13,10 @@ public class Letter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "ToWhom cannot be empty") // this is used for this field not empty
     private String toWhom;
     private String fromWhom;
+    @Size(min = 7, message = "Message must be at least 7 characters")
     private String message;
     private String date;
 
