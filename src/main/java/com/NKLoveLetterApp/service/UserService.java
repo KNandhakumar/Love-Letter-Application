@@ -12,7 +12,7 @@ public class UserService {
 
     // user register
     public String register(User user){
-        if (userRepository.findByUsername(user.getUsername())!= null){
+        if (userRepository.findByEmail(user.getEmail())!=null){
             return "User already exists";
         }
         userRepository.save(user);
@@ -21,7 +21,7 @@ public class UserService {
 
     // user login
     public String login(User user){
-        User existingUser = userRepository.findByUsername(user.getUsername());
+        User existingUser = userRepository.findByEmail(user.getEmail());
         if (existingUser==null){
             return "User not found";
         }
