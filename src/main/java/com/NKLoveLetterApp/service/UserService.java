@@ -12,18 +12,18 @@ public class UserService {
 
     // user register
     public String register(User user){
-        if (userRepository.findByUsername(user.getUsername())!= null){
-            return "User already exists";
+        if (userRepository.findByEmail(user.getEmail())!=null){
+            return "Email already registered";
         }
         userRepository.save(user);
-        return "Registered successfully!";
+        return "User Registered successfully!";
     }
 
     // user login
     public String login(User user){
-        User existingUser = userRepository.findByUsername(user.getUsername());
+        User existingUser = userRepository.findByEmail(user.getEmail());
         if (existingUser==null){
-            return "User not found";
+            return "User not found with this email";
         }
         if (!existingUser.getPassword().equals(user.getPassword())){
             return "Invalid password";
