@@ -11,12 +11,12 @@ public class UserService {
     private UserRepository userRepository;
 
     // user register
-    public String register(User user){
+    public User register(User user){
         if (userRepository.findByEmail(user.getEmail())!=null){
-            return "Email already registered";
+            return null;
         }
         userRepository.save(user);
-        return "User Registered successfully!";
+        return user;
     }
 
     // user login
