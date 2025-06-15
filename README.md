@@ -21,6 +21,7 @@ A heartfelt project built using **Spring Boot** that allows users to write, send
 
 ## 📁 Folder Structure
 
+```text
 src/
 ├── controller/
 ├── service/
